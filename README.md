@@ -15,6 +15,7 @@ Then override the functions setup() and draw()
 Finally to instantiate the p5 on the screen call the startP5JS() function, passing the DOM container.
 
 # Example of use
+```
 import { P5JSInvoker } from 'src/app/shared/classes/p5-jsinvoker';
 
 export class RandomWalkerComponent extends P5JSInvoker implements OnInit{
@@ -36,3 +37,4 @@ export class RandomWalkerComponent extends P5JSInvoker implements OnInit{
     p.circle(200, 200, 2);
   }
 }
+```
