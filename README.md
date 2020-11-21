@@ -5,26 +5,23 @@ Used to make p5 settings simpler using Typescript
 # Setup
 Install the p5js and the @types
 
-npm i p5
-npm i @types/p5
+- npm i p5
+- npm i @types/p5
 
 # How to use it
-Import the p5-jsinvoker.ts file
-Then extend the P5JSInvoke abstract class.
-Then override the functions setup() and draw()
-Finally to instantiate the p5 on the screen call the startP5JS() function, passing the DOM container.
+- Import the file p5-jsinvoker.ts
+- Then extend the abstract class P5JSInvoke.
+- Then override the setup() and draw() functions
+- Finally, to instantiate p5 on the screen, call the function startP5JS(), passing the DOM container as an argument.
 
 # Example of use
-```
-import { P5JSInvoker } from 'src/app/shared/classes/p5-jsinvoker';
+```javascript
+import { P5JSInvoker } from 'src/p5-jsinvoker';
 
 export class RandomWalkerComponent extends P5JSInvoker implements OnInit{
 
   constructor() {
     super()
-  }
-
-  ngOnInit() {
     this.startP5JS(document.body);
   }
 
