@@ -13,25 +13,26 @@ Install the p5js and the @types
 - Then extend the abstract class P5JSInvoke.
 - Then override the setup() and draw() functions
 - Finally, to instantiate p5 on the screen, call the function startP5JS(), passing the DOM container as an argument.
+- Use the this.p5 variable to play with the instantiated P5js
 
 # Example of use
 ```javascript
 import { P5JSInvoker } from 'src/p5-jsinvoker';
 
-export class RandomWalkerComponent extends P5JSInvoker implements OnInit{
+export class HelloWorldComponent extends P5JSInvoker implements OnInit{
 
   constructor() {
-    super()
+    super();
     this.startP5JS(document.body);
   }
 
-  setup(p:p5) {
-    p.createCanvas(400, 400);
+  setup() {
+    this.p5.createCanvas(400, 400);
   }
 
-  draw(p:p5) {
-    p.stroke(0);
-    p.circle(200, 200, 2);
+  draw() {
+    this.p5.stroke(0);
+    this.p5.circle(200, 200, 2);
   }
 }
 ```

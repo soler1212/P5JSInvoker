@@ -1,26 +1,26 @@
 import * as p5 from 'p5';
 
 export abstract class P5JSInvoker {
-    abstract setup(p: p5) : void;
-    abstract draw(p: p5) : void;
+  protected p5: p5;
 
-    protected startP5JS(containerElement: HTMLElement): void {
-        new p5(this.generate_sketch(), containerElement);
-    }
+  abstract setup() : void;
+  abstract draw() : void;
 
-    private generate_sketch() {
-        let that = this;
+  protected startP5JS(containerElement: HTMLElement): void {
+    this.p5 = new p5(this.generate_sketch(), containerElement);
+  }
 
-        return ((p: p5) => {
-            
-            p.setup = function() {
-                that.setup(p)
-            };
+  private generate_sketch() {
+      const that = this;
 
-            p.draw = function() {
-                that.draw(p);
-            };
-        })
-    }
+      return ((p: p5) => {
+        p.setup = function() {
+            that.setup();
+        };
+
+        p.draw = function() {
+            that.draw();
+        };
+      })
+  }
 }
-  
